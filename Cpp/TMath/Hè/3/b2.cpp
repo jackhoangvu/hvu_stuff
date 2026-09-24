@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long
+#define ld long double
+#define ar array
+#define vt vector
+#define pb push_back
+#define all(c) (c).begin(), (c).end()
+#define sz(x) (int)(x).size()
+#define EACH(x, a) for (auto& x: a)
+
+template<class A> void read(vt<A>& v);
+template<class A, size_t S> void read(ar<A, S>& a);
+template<class T> void read(T& x) {cin >> x;}
+void read(double& d) {string t; read(t); d=stod(t);}
+void read(long double& d) {string t; read(t); d=stold(t);}
+template<class H, class... T> void read(H& h, T&... t) {read(h); read(t...);}
+template<class A> void read(vt<A>& x) {EACH(a, x) read(a);}
+template<class A, size_t S> void read(array<A, S>& x) {EACH(a, x) read(a);}
+string to_string(char c) {return string(1, c);}
+string to_string(bool b) {return b? "true":"false";}
+string to_string(const char* s) {return string(s);}
+string to_string(string s) {return s;}
+template<class A> void write(A x) {cout << to_string(x);}
+template<class H, class... T> void write(const H& h, const T&... t) {write(h); write(t...);}
+void print() { write("\n"); }
+template<class H, class... T> void print(const H& h, const T&... t) {write(h); if(sizeof...(t)) write(' '); print(t...);}
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  int n; read(n);
+  vector<int> a(n);
+  // int mi=1005;
+  // for (int i=0; i<n; i++){
+  //   read(a[i]);
+  //   if(a[i]>0) mi=min(mi,a[i]);
+  // }
+  // sort(all(a));
+  // if(a[0]==0) {write(a[0]," ",a[1]); return 0;}
+  // if(mi<0) write(a[0]/gcd(a[0],a[n-1])," ",a[n-1]/gcd(a[0],a[n-1]));
+  // else write(a[0]," ",mi);
+  for (int i=0; i<n; i++){
+    read(a[i]);
+  }
+  sort(all(a));
+  auto e=unique(all(a));
+  a.erase(e,a.end());
+  vector<int> cnt(2005);
+  for(auto x:a) cnt[x+1000]++;
+  double mi=1e18;
+  int x=0,y=1;
+  for(auto m:a){
+    for(auto n:a){
+      if(n==0) continue;
+      if((double)m/n<mi){
+        mi=(double)m/n;
+        x=m; y=n;
+      }
+    }
+  }
+  print(x,y);
+}
