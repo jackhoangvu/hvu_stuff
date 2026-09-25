@@ -1,0 +1,225 @@
+{
+  "tmp": {
+    "prefix": "tmp",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "",
+      "using namespace std;",
+      "",
+      "int main() {",
+      "  ios::sync_with_stdio(0);",
+      "  cin.tie(0);",
+      "  ",
+      "  return 0;",
+      "}"
+    ]
+  },
+  "ispal":{
+    "prefix": "ispal",
+    "body":[
+      "bool isPal(int x){",
+      "  if (x<0 || (x% 10 == 0 && x!=0)) return false;",
+      "  int rev=0;",
+      "  while (x>rev) { rev= rev* 10+x % 10; x /= 10; }",
+      "  return x==rev || x==rev/10;",
+      "}"
+    ]
+  },
+  "for-n": {
+    "prefix": "fn",
+    "body": [
+      "for (int i=0; i<n; i++){",
+      "  $0",
+      "}"
+    ]
+  },
+  "for-j": {
+    "prefix": "fj",
+    "body": [
+      "for (int j=0; j<n; j++){",
+      "  $0",
+      "}"
+    ]
+  },
+  "pr": {
+    "prefix": "pr",
+    "body": [
+      "bool pr(long long n){",
+      "  if(n<=1) return false;",
+      "  for(int i=2; i*i<=n; i++){",
+      "    if(n%i==0) return false;",
+      "  }",
+      "  return true;",
+      "}"
+    ]
+  },
+  "bp": {
+    "prefix": "bp",
+    "body": [
+      "long long bp(long long b,long long e,long long m=mod){",
+      "  b%=m;",
+      "  long long ans=1;",
+      "  while(e>0){",
+      "    if(e&1) ans=ans*b%m;",
+      "    b=b*b%m;",
+      "    e>>=1;",
+      "  }",
+      "  return ans;",
+      "}"
+    ]
+  },
+  "nck": {
+    "prefix": "nck",
+    "body": [
+      "long long C(long long n,long long k,long long m=mod){",
+      "  if (k<0||n<0||k>n) return 0;",
+      "  return fac[n]*ifac[k]%m*ifac[n-k]%m;",
+      "}"
+    ]
+  },
+  "inv": {
+    "prefix": "inv",
+    "body": [
+      "long long inv(long long b, long long m=mod){",
+      "  return bp(b,mod-2);",
+      "}"
+    ]
+  },
+  "precompute": {
+    "prefix": "precompute",
+    "body": [
+      "void precompute(){",
+      "  fac[0]=1;",
+      "  for(int i=1; i<mxn; i++){",
+      "    fac[i]=fac[i-1]*i%mod;",
+      "  }",
+      "  ifac[mxn-1]=bp(fac[mxn-1],mod-2);",
+      "  for(int i=mxn-2; i>=0; i--){",
+      "    ifac[i]=ifac[i+1]*(i+1)%mod;",
+      "  }",
+      "}"
+    ]
+  },
+  "isqrt":{
+    "prefix": "isqrt",
+    "body": [
+      "long long isqrt(long long n){",
+      "  if(n<0) return 0;",
+      "  long long x=sqrtl(n);",
+      "  while((x+1)*(x+1)<=n) x++;",
+      "  while(x*x>n) x--;",
+      "  return x;",
+      "}"
+    ]
+  },
+  "div": {
+    "prefix": "div",
+    "body": [
+      "long long div(long long n){",
+      "  if(n<=1) return false;",
+      "  long long cnt=0;",
+      "  long long mx=sqrt(n);",
+      "  for(long long i=1; i<=mx; i++){",
+      "    if(n%i==0){",
+      "      cnt++;",
+      "      if(i*i!=n) cnt++;",
+      "    }",
+      "  }",
+      "  return cnt;",
+      "}"
+    ]
+  },
+  "rev": {
+    "prefix": "rev",
+    "body": [
+      "long long rev(long long n){",
+      "  long long ans=0;",
+      "  while(n>0){",
+      "    ans=ans*10+(n%10);",
+      "    n/=10;",
+      "  }",
+      "  return ans;",
+      "}"
+    ]
+  },
+  "analyze": {
+    "prefix": "analyze",
+    "body": [
+      "void analyze(long long k){",
+      "  for(long long i=2; i*i<=k; i++){",
+      "    if(k%i==0){",
+      "      int cnt=0;",
+      "      while(k%i==0){",
+      "        cnt++;",
+      "        k/=i;",
+      "      }",
+      "      fac.push_back({i,cnt});",
+      "    }",
+      "  }",
+      "  if(k>1) fac.push_back({k,1});",
+      "}"
+    ]
+  },
+  "Jack's Template": {
+    "prefix": "ios",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "",
+      "using namespace std;",
+      "",
+      "#define ll long long",
+      "#define ld long double",
+      "#define ar array",
+      "#define vt vector",
+      "#define pb push_back",
+      "#define all(c) (c).begin(), (c).end()",
+      "#define sz(x) (int)(x).size()",
+      "#define EACH(x, a) for (auto& x: a)",
+      "",
+      "template<class A> void read(vt<A>& v);",
+      "template<class A, size_t S> void read(ar<A, S>& a);",
+      "template<class T> void read(T& x) {cin >> x;}",
+      "void read(double& d) {string t; read(t); d=stod(t);}",
+      "void read(long double& d) {string t; read(t); d=stold(t);}",
+      "template<class H, class... T> void read(H& h, T&... t) {read(h); read(t...);}",
+      "template<class A> void read(vt<A>& x) {EACH(a, x) read(a);}",
+      "template<class A, size_t S> void read(array<A, S>& x) {EACH(a, x) read(a);}",
+      "string to_string(char c) {return string(1, c);}",
+      "string to_string(bool b) {return b? \"true\":\"false\";}",
+      "string to_string(const char* s) {return string(s);}",
+      "string to_string(string s) {return s;}",
+      "template<class A> void write(A x) {cout << to_string(x);}",
+      "template<class H, class... T> void write(const H& h, const T&... t) {write(h); write(t...);}",
+      "void print() { write(\"\\n\"); }",
+      "template<class H, class... T> void print(const H& h, const T&... t) {write(h); if(sizeof...(t)) write(' '); print(t...);}",
+      "",
+      "int main() {",
+      "  ios::sync_with_stdio(0);",
+      "  cin.tie(0);",
+      "  $0",
+      "}",
+      ""
+    ],
+    "description": "Jack's Template"
+  },
+  "scp":{
+    "prefix": "scp",
+    "body": [
+      "bool scp(long long n){",
+      "  if(n<0) return false;",
+      "  long long s=sqrt(n);",
+      "  return (s*s==n);",
+      "}"
+    ]
+  },
+  "ordered_set":{
+    "prefix": "ordered_set",
+    "body":[
+      "#include <ext/pb_ds/assoc_container.hpp>",
+      "#include <ext/pb_ds/tree_policy.hpp>",
+      "using namespace __gnu_pbds;",
+      "template <typename T>",
+      "using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;"
+    ]
+  }
+}
