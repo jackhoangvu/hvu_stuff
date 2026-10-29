@@ -1,0 +1,165 @@
+{
+	"name": "vscode-remove-comments",
+	"displayName": "Remove Comments",
+	"description": "Remove all comments from your code.",
+	"version": "1.17.1",
+	"publisher": "rioj7",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.55.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "images/icon.png",
+	"keywords": [
+		"comment",
+		"comments",
+		"delete",
+		"remove",
+		"extract",
+		"strings"
+	],
+	"activationEvents": [
+		"onCommand:remove-comments.extractStrings",
+		"onCommand:remove-comments.markJSDocStringAsComment",
+		"onCommand:remove-comments.removeAllComments",
+		"onCommand:remove-comments.removeSingleLineComments",
+		"onCommand:remove-comments.removeMultilineComments",
+		"onCommand:remove-comments.removeAllCommentsWithPrefix"
+	],
+	"galleryBanner": {
+		"color": "#000080",
+		"theme": "dark"
+	},
+	"main": "./remove-comments.js",
+	"browser": "./remove-comments.js",
+	"contributes": {
+		"configuration": {
+			"title": "Remove Comments",
+			"properties": {
+				"remove-comments.c99": {
+					"type": "boolean",
+					"description": "Use c99+ comments. // added.",
+					"scope": "resource",
+					"default": false
+				},
+				"remove-comments.removeBlankLines.before": {
+					"type": "integer",
+					"description": "Remove up to N blank lines before a removed comment.",
+					"scope": "resource",
+					"default": 0
+				},
+				"remove-comments.removeBlankLines.after": {
+					"type": "integer",
+					"description": "Remove up to N blank lines after a removed comment.",
+					"scope": "resource",
+					"default": 0
+				},
+				"remove-comments.extractStrings.filePath": {
+					"type": "string",
+					"description": "Full path of the file to store the extracted strings.",
+					"scope": "resource"
+				},
+				"remove-comments.extractStrings.lineJoin": {
+					"type": "string",
+					"description": "For multi line strings replace the line separator with this string.",
+					"default": "@@@@",
+					"scope": "resource"
+				},
+				"remove-comments.keep": {
+					"type": [
+						"object",
+						"boolean"
+					],
+					"description": "define named regular expressions that test comments to keep, if set to false override User/Workspace setting. Object key: languageId or \"all\"",
+					"scope": "resource",
+					"default": {},
+					"patternProperties": {
+						"^.+$": {
+							"type": [
+								"object",
+								"boolean"
+							],
+							"description": "for languageId or \"all\": named regular expressions that test comments to keep, if set to false override User/Workspace setting for this languageId or \"all\"",
+							"patternProperties": {
+								"^.+$": {
+									"type": [
+										"object",
+										"boolean"
+									],
+									"description": "named regular expressions that test comments to keep, if set to false override User/Workspace setting for this named regex",
+									"properties": {
+										"regex": {
+											"type": "string",
+											"description": "regular expression to search for in the comment text"
+										},
+										"flags": {
+											"type": "string",
+											"description": "(Optional) string with the regex flags \"i\" (default: \"\")"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "remove-comments.extractStrings",
+				"title": "Extract Strings to a file",
+				"category": "Comments"
+			},
+			{
+				"command": "remove-comments.ignoreKeepCommentSetting",
+				"title": "Ignore any \"remove-comments.keep\" setting. For next removal only.",
+				"category": "Comments"
+			},
+			{
+				"command": "remove-comments.markJSDocStringAsComment",
+				"title": "Mark JSDOC String as comment. For next removal only.",
+				"category": "Comments"
+			},
+			{
+				"command": "remove-comments.removeAllComments",
+				"title": "Remove All Comments",
+				"category": "Comments"
+			},
+			{
+				"command": "remove-comments.removeAllCommentsWithPrefix",
+				"title": "Remove All Comments that have a user entered prefix",
+				"category": "Comments"
+			},
+			{
+				"command": "remove-comments.removeSingleLineComments",
+				"title": "Remove All Single Line Comments",
+				"category": "Comments"
+			},
+			{
+				"command": "remove-comments.removeMultilineComments",
+				"title": "Remove All Multiline Comments",
+				"category": "Comments"
+			}
+		]
+	},
+	"homepage": "https://github.com/rioj7/remove-comments",
+	"bugs": "https://github.com/rioj7/remove-comments/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rioj7/remove-comments"
+	},
+	"devDependencies": {
+		"@types/assert": "^1.5.4",
+		"@types/mocha": "^8.2.1",
+		"glob": "^7.1.6",
+		"mocha": "^9.1.3",
+		"simple-mock": "^0.8.0"
+	},
+	"__metadata": {
+		"installedTimestamp": 1779787498429,
+		"targetPlatform": "undefined",
+		"size": 67846
+	}
+}

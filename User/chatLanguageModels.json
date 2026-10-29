@@ -1,0 +1,11 @@
+[
+	{
+		"name": "Copilot",
+		"vendor": "copilot",
+		"settings": {
+			"auto": {
+				"tier": "efficiency"
+			}
+		}
+	}
+]

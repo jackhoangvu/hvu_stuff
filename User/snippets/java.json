@@ -1,0 +1,9 @@
+{
+    "prn": {
+        "prefix": "prn",
+        "body": [
+            "System.out.print();"
+        ],
+        "description": "Create a new Java print method"
+    }
+}

@@ -1,0 +1,47 @@
+{
+	"basic styling": {
+		"prefix": "style",
+		"body": [
+			"* {",
+			"  margin: 0;",
+			"  padding: 0;",
+			"  box-sizing: border-box;",
+			"}",
+			"",
+			"body {",
+			"  display: flex;",
+			"  justify-content: center;",
+			"  align-items: center;",
+			"}"
+		],
+		"description": "Basic styling for CSS"
+	},
+	"resets": {
+		"prefix": "reset",
+		"body": [
+			"img, picture, svg, video {",
+			"  display: block;",
+			"  max-width: 100%;",
+			"}",
+			"",
+			"input, button, textarea, select {",
+			"  font: inherit;",
+			"}"
+		],
+		"description": "Reset styles for CSS"
+	},
+	"mono": {
+		"prefix": "mono",
+		"body": [
+			"font-family: \"JetBrains Mono\", \"Fira Code\", monospace;",
+		],
+		"description": "Mono Fonts"
+	},
+	"sans": {
+		"prefix": "sans",
+		"body": [
+			"font-family: \"Arial\", \"Helvetica\", \"sans-serif\";",
+		],
+		"description": "Mono Fonts"
+	}
+}

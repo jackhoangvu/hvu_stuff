@@ -1,0 +1,29 @@
+{
+	"name": "codex-audio",
+	"publisher": "openai",
+	"version": "26.1021.22027",
+	"displayName": "Codex Audio",
+	"description": "Local microphone support for Codex dictation, including remote workspaces.",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"engines": {
+		"vscode": "^1.96.2"
+	},
+	"extensionKind": [
+		"ui"
+	],
+	"api": "none",
+	"main": "./out/extension.js",
+	"activationEvents": [
+		"onCommand:_codex.microphone.available"
+	],
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"__metadata": {
+		"installedTimestamp": 1792802244596,
+		"targetPlatform": "undefined",
+		"size": 4855289
+	}
+}

@@ -1,0 +1,131 @@
+{
+	"name": "remove-empty-lines",
+	"displayName": "Remove empty lines",
+	"description": "Remove blank lines from document or selection.",
+	"version": "1.0.1",
+	"publisher": "usernamehw",
+	"license": "MIT",
+	"icon": "img/icon.png",
+	"engines": {
+		"vscode": "^1.56.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/usernamehw/vscode-remove-empty-lines"
+	},
+	"bugs": {
+		"url": "https://github.com/usernamehw/vscode-remove-empty-lines/issues"
+	},
+	"extensionKind": [
+		"ui",
+		"workspace"
+	],
+	"keywords": [
+		"remove",
+		"delete",
+		"empty",
+		"blank",
+		"line"
+	],
+	"categories": [
+		"Other",
+		"Formatters"
+	],
+	"activationEvents": [
+		"onCommand:remove-empty-lines.inDocument",
+		"onCommand:remove-empty-lines.inSelection",
+		"onStartupFinished"
+	],
+	"main": "./dist/extension.js",
+	"browser": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "remove-empty-lines.inDocument",
+				"title": "in Document",
+				"category": "Remove empty lines"
+			},
+			{
+				"command": "remove-empty-lines.inSelection",
+				"title": "in Selection",
+				"category": "Remove empty lines"
+			}
+		],
+		"configuration": {
+			"title": "Remove empty lines",
+			"properties": {
+				"remove-empty-lines.allowedNumberOfEmptyLines": {
+					"type": "integer",
+					"default": 0,
+					"maximum": 500,
+					"scope": "language-overridable",
+					"description": "Number of allowed consecutive empty lines."
+				},
+				"remove-empty-lines.runOnSave": {
+					"type": "boolean",
+					"default": false,
+					"scope": "language-overridable",
+					"description": "Run remove empty lines on document save event."
+				},
+				"remove-empty-lines.onSaveReason": {
+					"type": "object",
+					"properties": {
+						"manual": {
+							"type": "boolean",
+							"default": true,
+							"description": "Manually triggered, e.g. by the user pressing save, by starting debugging, or by an API call."
+						},
+						"afterDelay": {
+							"type": "boolean",
+							"default": false,
+							"description": "Automatic after a delay."
+						},
+						"focusOut": {
+							"type": "boolean",
+							"default": false,
+							"description": "When the editor lost focus."
+						}
+					},
+					"default": {
+						"manual": true,
+						"afterDelay": false,
+						"focusOut": false
+					},
+					"additionalProperties": false,
+					"markdownDescription": "Controls which save event triggers running the extension (for `#remove-empty-lines.runOnSave#` setting)."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production --color --devtool hidden-source-map",
+		"watch": "webpack --mode development --watch --stats minimal",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out"
+	},
+	"devDependencies": {
+		"@soda/friendly-errors-webpack-plugin": "^1.8.1",
+		"@types/chai": "^4.3.4",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.56.0",
+		"@typescript-eslint/eslint-plugin": "^5.51.0",
+		"@typescript-eslint/parser": "^5.51.0",
+		"@vscode/test-electron": "^2.2.3",
+		"chai": "^4.3.7",
+		"eslint": "^8.33.0",
+		"eslint-plugin-no-autofix": "^1.2.3",
+		"glob": "^8.1.0",
+		"mocha": "^10.2.0",
+		"ts-loader": "^9.4.2",
+		"typescript": "^4.9.5",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1"
+	},
+	"__metadata": {
+		"installedTimestamp": 1769428692027,
+		"targetPlatform": "undefined",
+		"size": 25717
+	}
+}

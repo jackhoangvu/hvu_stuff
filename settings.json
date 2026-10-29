@@ -117,13 +117,13 @@
     "**/build/**": true,
     "**/.next/**": true,
     "**/.svelte-kit/**": true,
-    "**/target/**": true,
+    "**/target/**": true
   },
   "js/ts.tsserver.maxMemory": 1024,
   "git.autofetch": false,
   "git.confirmSync": false,
   "extensions.experimental.affinity": {
-    "github.copilot": 1,
+    "github.copilot": 1
   },
   "update.showReleaseNotes": false,
   "workbench.tips.enabled": false,
@@ -290,27 +290,27 @@
   "chat.inlineReferences.style": "link",
   "chat.tools.todos.showWidget": false,
   // "workbench.colorCustomizations": {
-    //   "editorError.foreground": "#00000000",
-    //   "editorWarning.foreground": "#00000000",
-    //   "editorInfo.foreground": "#00000000"
-    // }
-    "chat.editing.autoAcceptDelay": 0.1,
-    "chat.editing.confirmEditRequestRemoval": false,
-    "chat.editing.confirmEditRequestRetry": false,
-    "chat.editing.revealNextChangeOnResolve": false,
-    "github.copilot.enable": {
-      "*": true,
-      "plaintext": false,
-      "markdown": false,
-      "scminput": false
-    },
-    "workbench.colorCustomizations": {
-      "inlineChat.regionHighlight": "#00000000",
-      "inlineChatDiff.inserted": "#00000000",
-      "inlineChatDiff.removed": "#00000000",
-      "diffEditor.insertedTextBackground": "#00000000",
-      "diffEditor.removedTextBackground": "#00000000"
-    },
-    "security.workspace.trust.untrustedFiles": "open",
-    "github.copilot.chat.exploreAgent.enabled": false
-  }
+  //   "editorError.foreground": "#00000000",
+  //   "editorWarning.foreground": "#00000000",
+  //   "editorInfo.foreground": "#00000000"
+  // }
+  "chat.editing.autoAcceptDelay": 0.1,
+  "chat.editing.confirmEditRequestRemoval": false,
+  "chat.editing.confirmEditRequestRetry": false,
+  "chat.editing.revealNextChangeOnResolve": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.colorCustomizations": {
+    "inlineChat.regionHighlight": "#00000000",
+    "inlineChatDiff.inserted": "#00000000",
+    "inlineChatDiff.removed": "#00000000",
+    "diffEditor.insertedTextBackground": "#00000000",
+    "diffEditor.removedTextBackground": "#00000000"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "github.copilot.chat.exploreAgent.enabled": false
+}

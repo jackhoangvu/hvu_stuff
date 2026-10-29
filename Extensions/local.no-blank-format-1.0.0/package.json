@@ -1,0 +1,55 @@
+{
+	"name": "no-blank-format",
+	"displayName": "No Blank Format",
+	"description": "Reformat selected C++ code: fix indentation to 2 spaces per level, strip blank/space padding.",
+	"version": "1.0.0",
+	"publisher": "local",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "noBlankFormat.format",
+				"title": "No Blank Format: Compact Selection"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "noBlankFormat.format",
+				"key": "ctrl+alt+k",
+				"mac": "cmd+alt+k",
+				"when": "editorHasSelection"
+			}
+		],
+		"configuration": {
+			"title": "No Blank Format",
+			"properties": {
+				"noBlankFormat.indentSize": {
+					"type": "number",
+					"default": 2,
+					"description": "Number of spaces per indent level in the compacted output."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.85.0",
+		"@types/node": "^20.0.0",
+		"typescript": "^5.3.0"
+	},
+	"__metadata": {
+		"installedTimestamp": 1785744699552,
+		"targetPlatform": "undefined",
+		"size": 47438
+	}
+}

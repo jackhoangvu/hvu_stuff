@@ -1,0 +1,89 @@
+{
+	"Console Log": {
+		"prefix": "console",
+		"body": [
+			"console.log($1);"
+		],
+		"description": "Log to console"
+	},
+	"Get Element By ID": {
+		"prefix": "docid",
+		"body": [
+			"document.getElementById(\"$1\")"
+		],
+		"description": "Document Get Element By ID"
+	},
+	"Get Elements By Class Name": {
+		"prefix": "docl",
+		"body": [
+			"document.getElementsByClassName(\"$1\")"
+		],
+		"description": "Document Get Elements By Class Name"
+	},
+	"Query Selector": {
+		"prefix": "qs",
+		"body": [
+			"document.querySelector(\"$1\")"
+		],
+		"description": "Document Query Selector"
+	},
+	"Query Selector All": {
+		"prefix": "qsa",
+		"body": [
+			"document.querySelectorAll(\"$1\")"
+		],
+		"description": "Document Query Selector All"
+	},
+	"Add Event Listener": {
+		"prefix": "ael",
+		"body": [
+			"${1:document}.addEventListener(\"${2:click}\", (e) => {",
+			"\t$0",
+			"});"
+		],
+		"description": "Add Event Listener"
+	},
+	"Arrow Function": {
+		"prefix": "afn",
+		"body": [
+			"const ${1:name} = (${2:params}) => {",
+			"\t$0",
+			"}"
+		],
+		"description": "Create Arrow Function"
+	},
+	"Try Catch Block": {
+		"prefix": "tc",
+		"body": [
+			"try {",
+			"\t$0",
+			"} catch (error) {",
+			"\tconsole.error(error);",
+			"}"
+		],
+		"description": "Try Catch Block"
+	},
+	"Import Statement": {
+		"prefix": "imp",
+		"body": [
+			"import { $1 } from \"$2\";"
+		],
+		"description": "ES6 Import Destructuring"
+	},
+	"New Promise": {
+		"prefix": "nprom",
+		"body": [
+			"new Promise((resolve, reject) => {",
+			"\t$0",
+			"});"
+		],
+		"description": "Create a new Promise"
+	},
+	"JSON Stringify Pretty": {
+		"prefix": "jspp",
+		"body": [
+			"console.log(JSON.stringify($1, null, 2));"
+		],
+		"description": "JSON Stringify Pretty Print for Debugging"
+	}
+}

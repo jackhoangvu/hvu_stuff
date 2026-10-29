@@ -1,0 +1,147 @@
+{
+	"name": "docxreader",
+	"displayName": "Docx/ODT Viewer",
+	"publisher": "ShahilKumar",
+	"description": "Docx/ODT files Rendered inside VSCode",
+	"icon": "assets/icons/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skfrost19/Docx-Viewer.git"
+	},
+	"version": "1.4.3",
+	"engines": {
+		"vscode": "^1.90.0"
+	},
+	"categories": [
+		"Visualization"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Docx Reader",
+			"properties": {
+				"docxreader.font": {
+					"type": "string",
+					"default": "Arial",
+					"description": "Font family for document rendering"
+				},
+				"docxreader.theme": {
+					"type": "string",
+					"default": "auto",
+					"enum": [
+						"auto",
+						"light",
+						"dark"
+					],
+					"description": "Theme for document viewer (config takes precedence over system theme). 'auto' follows VS Code theme, 'light' always uses light mode, 'dark' always uses dark mode."
+				},
+				"docxreader.zoomLevel": {
+					"type": "number",
+					"default": 1,
+					"minimum": 0.5,
+					"maximum": 3,
+					"description": "Default zoom level for documents"
+				},
+				"docxreader.showOutline": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show document outline/table of contents"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "docxreader.openConfig",
+				"title": "Open Docx Reader Configuration"
+			},
+			{
+				"command": "docxreader.zoomIn",
+				"title": "Zoom In",
+				"icon": "$(zoom-in)"
+			},
+			{
+				"command": "docxreader.zoomOut",
+				"title": "Zoom Out",
+				"icon": "$(zoom-out)"
+			},
+			{
+				"command": "docxreader.resetZoom",
+				"title": "Reset Zoom",
+				"icon": "$(zoom-reset)"
+			},
+			{
+				"command": "docxreader.toggleOutline",
+				"title": "Toggle Outline",
+				"icon": "$(list-tree)"
+			},
+			{
+				"command": "docxreader.toggleTheme",
+				"title": "Toggle Theme",
+				"icon": "$(color-mode)"
+			},
+			{
+				"command": "docxreader.toggleToolbar",
+				"title": "Toggle Toolbar",
+				"icon": "$(toolbar)"
+			}
+		],
+		"customEditors": [
+			{
+				"viewType": "docxreader.docxEditor",
+				"displayName": "Docx Reader",
+				"priority": "default",
+				"selector": [
+					{
+						"filenamePattern": "*.docx"
+					},
+					{
+						"filenamePattern": "*.odt"
+					}
+				]
+			}
+		],
+		"menus": {}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"version:patch": "npm version patch && npm run compile",
+		"version:minor": "npm version minor && npm run compile",
+		"version:major": "npm version major && npm run compile",
+		"package": "vsce package",
+		"publish": "vsce publish",
+		"release:patch": "npm run version:patch && npm run package",
+		"release:minor": "npm run version:minor && npm run package",
+		"release:major": "npm run version:major && npm run package",
+		"version:check": "node scripts/version.js current",
+		"version:validate": "node scripts/version.js validate",
+		"version:tag": "node scripts/version.js tag",
+		"changelog:template": "node scripts/version.js changelog"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.7",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.90.0",
+		"@typescript-eslint/eslint-plugin": "^8.5.0",
+		"@typescript-eslint/parser": "^8.5.0",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.25.1",
+		"glob": "^11.0.0",
+		"mocha": "^10.7.3",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"mammoth": "^1.12.1",
+		"odt2html": "^1.0.1"
+	},
+	"__metadata": {
+		"installedTimestamp": 1787221687569,
+		"targetPlatform": "undefined",
+		"size": 10558250
+	}
+}
